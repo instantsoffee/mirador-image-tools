@@ -168,23 +168,8 @@ class MiradorImageTools extends Component {
     const foregroundColor = palette.getContrastText(backgroundColor);
     const isSmallDisplay = ['xs', 'sm'].indexOf(width) >= 0;
 
-    /** Button for toggling the menu */
-    const toggleButton = (
-      <div className={(isSmallDisplay && open) ? classes.borderContainer : ''}>
-        <MiradorMenuButton
-          aria-expanded={open}
-          aria-haspopup
-          aria-label={t('collapse', { context: open ? 'open' : 'close' })}
-          containerId={containerId}
-          onClick={this.toggleState}
-        >
-          { open ? <CloseSharpIcon /> : <TuneSharpIcon /> }
-        </MiradorMenuButton>
-      </div>
-    );
     return (
       <div className={`MuiPaper-elevation4 ${classes.root}`}>
-        {isSmallDisplay && toggleButton}
         {open
         && (
         <React.Fragment>
@@ -282,7 +267,6 @@ class MiradorImageTools extends Component {
           </div>
         </React.Fragment>
         )}
-        {!isSmallDisplay && toggleButton}
       </div>
     );
   }

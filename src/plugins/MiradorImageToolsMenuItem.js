@@ -5,31 +5,29 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import TuneSharpIcon from '@material-ui/icons/TuneSharp';
 
+import { MiradorMenuButton } from 'mirador/dist/es/src/components/MiradorMenuButton';
+
 const MiradorImageToolsMenuItem = ({
-  enabled, handleClose, t, updateWindow, windowId,
+  enabled, t, updateWindow, windowId,
 }) => {
   const handleClickOpen = () => {
-    handleClose();
     updateWindow(windowId, { imageToolsEnabled: !enabled });
   };
 
   return (
-    <MenuItem onClick={handleClickOpen}>
-      <ListItemIcon>
-        <TuneSharpIcon />
-      </ListItemIcon>
-      <ListItemText primaryTypographyProps={{ variant: 'body1' }}>
-        { enabled ? t('hide') : t('show') }
-      </ListItemText>
-    </MenuItem>
+    <MiradorMenuButton
+      aria-label={enabled ? t('hide') : t('show')}
+      onClick={handleClickOpen}
+    >
+      <TuneSharpIcon />
+    </MiradorMenuButton>
   );
 };
 
 MiradorImageToolsMenuItem.propTypes = {
   enabled: PropTypes.bool,
-  handleClose: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired,
   updateWindow: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
   windowId: PropTypes.string.isRequired,
 };
 

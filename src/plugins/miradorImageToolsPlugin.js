@@ -25,7 +25,7 @@ export default [
     },
   },
   {
-    target: 'WindowTopBarPluginMenu',
+    target: 'WindowTopBarPluginArea',
     component: MiradorImageToolsMenuItem,
     mode: 'add',
     mapDispatchToProps: {
