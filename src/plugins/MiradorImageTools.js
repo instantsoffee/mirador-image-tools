@@ -256,7 +256,7 @@ class MiradorImageTools extends Component {
               <InvertColorsIcon />
             </ImageTool>
           </div>
-          <div className={isSmallDisplay ? '' : classes.borderContainer}>
+          <div>
             <MiradorMenuButton
               aria-label={t('revert')}
               containerId={containerId}
