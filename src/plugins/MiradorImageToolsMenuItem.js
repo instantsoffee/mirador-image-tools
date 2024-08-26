@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import TuneSharpIcon from '@material-ui/icons/TuneSharp';
 
 import { MiradorMenuButton } from 'mirador/dist/es/src/components/MiradorMenuButton';
 
 const MiradorImageToolsMenuItem = ({
-  enabled, t, updateWindow, windowId,
+  open, t, updateWindow, windowId,
 }) => {
   const handleClickOpen = () => {
-    updateWindow(windowId, { imageToolsEnabled: !enabled });
+    updateWindow(windowId, { imageToolsOpen: !open });
   };
 
   return (
     <MiradorMenuButton
-      aria-label={enabled ? t('hide') : t('show')}
+      aria-label={open ? t('hide') : t('show')}
       onClick={handleClickOpen}
     >
       <TuneSharpIcon />
@@ -26,6 +23,7 @@ const MiradorImageToolsMenuItem = ({
 
 MiradorImageToolsMenuItem.propTypes = {
   enabled: PropTypes.bool,
+  open: PropTypes.bool,
   updateWindow: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
   windowId: PropTypes.string.isRequired,
@@ -33,6 +31,7 @@ MiradorImageToolsMenuItem.propTypes = {
 
 MiradorImageToolsMenuItem.defaultProps = {
   enabled: true,
+  open: false,
 };
 
 export default MiradorImageToolsMenuItem;
